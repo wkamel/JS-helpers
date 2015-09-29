@@ -37,7 +37,7 @@ kAjaxForm = function(form, controller_url) {
     this.showErrors = function(errorsJson) {
         var that = this;
         $.each(errorsJson, function(n, v) {
-                var $ffield = $("[name='"+n+"']");
+                var $ffield = $("[name='" + n + "']");
                 var errorinfo = that.setFieldErrorInfo($ffield, v);
         });
     };
@@ -66,7 +66,7 @@ kAjaxForm = function(form, controller_url) {
     };
 
 
-    this.onSubmit = function(){
+    this.onSubmit = function() {
         var that = this;
         this.form.submit(function(event){
             event.preventDefault();
@@ -119,7 +119,7 @@ kAjaxForm = function(form, controller_url) {
             if(ret.status && ret.data.status) {
                 var obj = JSON.parse(ret.data.object)[0];
                 $.each(obj.fields, function(n, v) {
-                    that.form.find('[name="'+n+'"]').val(v);
+                    that.form.find('[name="' + n + '"]').val(v);
                 });
                 that.form.find('[name="id"]').val(obj.pk);
 
@@ -138,9 +138,9 @@ kAjaxForm = function(form, controller_url) {
 
     };
 
-    this.init = function(params){
+    this.init = function(params) {
         var that = this;
-        if(typeof params !== undefined) {
+        if(typeof params !== 'undefined') {
             $.each(params, function(n, v) {
                 that.params[n] = v;
             });
